@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spin-gate-np
+  namespace: spinnaker
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8084
+  selector:
+    app: spin-gate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spin-deck-np
+  namespace: spinnaker
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 9000
+  selector:
+    app: spin-deck
