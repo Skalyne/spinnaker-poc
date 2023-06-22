@@ -1,27 +1,41 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spin-gate-np
+  creationTimestamp: null
   namespace: spinnaker
+  labels:
+    app: spin
+    cluster: spin-gate
+  name: spin-gate-public
 spec:
-  type: LoadBalancer
   ports:
-    - name: http
-      port: 80
-      targetPort: 8084
+  - port: 8084
+    protocol: TCP
+    targetPort: 8084
   selector:
-    app: spin-gate
+    app: spin
+    cluster: spin-gate
+  type: LoadBalancer
+status:
+  loadBalancer: {}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: spin-deck-np
+  creationTimestamp: null
   namespace: spinnaker
+  labels:
+    app: spin
+    cluster: spin-deck
+  name: spin-deck-public
 spec:
-  type: LoadBalancer
   ports:
-    - name: http
-      port: 80
-      targetPort: 9000
+  - port: 9000
+    protocol: TCP
+    targetPort: 9000
   selector:
-    app: spin-deck
+    app: spin
+    cluster: spin-deck
+  type: LoadBalancer
+status:
+  loadBalancer: {}
