@@ -18,3 +18,4 @@ spec:
         image: python #spinnakerpoc.azurecr.io/pokeapp
         ports:
         - containerPort: 5000
+
