@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poke-web
+  namespace: spinnaker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokeapp
+  template:
+    metadata:
+      labels:
+        app: pokeapp
+    spec:
+      containers:
+      - name: poke-web
+        image: spinnakerpoc.azurecr.io/pokeapp
+        ports:
+        - containerPort: 5000
+
