@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: poke-web
-        image: spinnakerpoc.azurecr.io/pokeapp
+        image: python #spinnakerpoc.azurecr.io/pokeapp
         ports:
         - containerPort: 5000
