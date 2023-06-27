@@ -16,5 +16,6 @@ spec:
       containers:
       - name: poke-web
         image: spinnakerpoc.azurecr.io/pokeapp
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
